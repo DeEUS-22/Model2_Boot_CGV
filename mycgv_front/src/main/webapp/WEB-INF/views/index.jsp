@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- 
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +34,6 @@
 <body>
 	<!-- Header Include -->
 	<iframe src="http://localhost:9004/header" width="100%" height="160px" scrolling="no" frameborder=0 ></iframe>
-<!--<iframe src="http://localhost:9004/header.do" width="100%" height="160px" scrolling="no" frameborder=0 ></iframe> -->
 	
 	
 	<!---------------------------------------------->
@@ -173,7 +171,6 @@
 	
 	<!-- footer Include -->
 	<iframe src="http://localhost:9004/footer" width="100%" height="530px" scrolling="no" frameborder=0></iframe>
-<!--<iframe src="http://localhost:9004/footer.do" width="100%" height="530px" scrolling="no" frameborder=0></iframe> -->
 	
 </body>
 </html>

@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- jstl 에서의 제어문 중 if~else : <choose><when></when><otherwise></otherwise></choose> 형태로 구현 --%>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>header</title>
 <link rel="stylesheet"  href="http://localhost:9004/css/mycgv.css">
 </head>
 <body>
@@ -17,16 +16,10 @@
 	<header>
 		<div class="header_contents1">
 			<div>
-<!-- 			<a href="http://localhost:9004/index.do" target="_parent"> -->
 				<a href="http://localhost:9004/index" target="_parent">
 					<img src="http://localhost:9004/images/logoRed.png" width="150" height="70"></a>
 				<span>CULTURFLEX</span>				
 			</div>
-			<%-- sid ==> ${sessionScope.sid}  값이 제대로 넘어오는지 확인하려고 한거다.--%>
-	<!--    <c:if test="${sessionScope.svo != null}">
-				<span>[${sessionScope.svo.name}]님 반갑습니다.</span>
-			</c:if>
-	-->		
 			<c:if test="${sessionScope.sid != null}">
 				<span>[${sessionScope.sid}]님 반갑습니다.</span>
 			</c:if>
@@ -34,28 +27,22 @@
 			<c:when test="${sessionScope.sid == null}">	
 			<div>
 				<img src="http://localhost:9004/images/hcard.png">
-<!-- 			<a href="http://localhost:9004/login.do" target="_parent" > -->
 				<a href="http://localhost:9004/login" target="_parent" >
 					<img src="http://localhost:9004/images/loginPassword.png">
 					<span>로그인</span>
 				</a>
-<!-- 			<a href="http://localhost:9004/join.do" target="_parent" > -->
 				<a href="http://localhost:9004/join" target="_parent" >
 					<img src="http://localhost:9004/images/loginJoin.png">
 					<span>회원가입</span>
 				</a>
-<!-- 			<a href="http://localhost:9004/mycgv.do" target="_parent"> -->
 				<a href="http://localhost:9004/mycgv" target="_parent">
 					<img src="http://localhost:9004/images/loginMember.png">
 					<span>MY CGV</span>
 				</a>
-<!-- 			<a href="http://localhost:9004/board_list.do" target="_parent" > -->
-<!-- 			<a href="http://localhost:9004/board_list" target="_parent" > 최초 페이지 1을 주려고 아래처럼 한거다. 이렇게 하면 컨트롤러에서 1만 주는 메서드는 주석처리해도된다.-->
 				<a href="http://localhost:9004/board_list/1" target="_parent" >
 					<img src="http://localhost:9004/images/loginCustomer.png">
 					<span>게시판</span>
 				</a>
-<!-- 			<a href="http://localhost:9004/notice_list.do" target="_parent" > -->
 				<a href="http://localhost:9004/notice_list" target="_parent" >
 					<img src="http://localhost:9004/images/loginCustomer.png">
 					<span>공지사항</span>
@@ -66,34 +53,28 @@
 			<c:otherwise> 
 			<div>
 				<img src="http://localhost:9004/images/hcard.png">
-<!-- 			<a href="http://localhost:9004/logout.do" target="_parent" > -->
 				<a href="http://localhost:9004/logout" target="_parent" >
 					<img src="http://localhost:9004/images/loginPassword.png">
 					<span>로그아웃</span>
 				</a>
-<!-- 			<a href="http://localhost:9004/join.do" target="_parent" > -->
 				<a href="http://localhost:9004/join" target="_parent" >
 					<img src="http://localhost:9004/images/loginJoin.png">
 					<span>회원가입</span>
 				</a>
-<!-- 			<a href="http://localhost:9004/mycgv.do" target="_parent"> -->
 				<a href="http://localhost:9004/mycgv" target="_parent">
 					<img src="http://localhost:9004/images/loginMember.png">
 					<span>MY CGV</span>
 				</a>
-<!-- 			<a href="http://localhost:9004/board_list.do" target="_parent" > -->
 				<a href="http://localhost:9004/board_list" target="_parent" >
 					<img src="http://localhost:9004/images/loginCustomer.png">
 					<span>게시판</span>
 				</a>
-<!-- 			<a href="http://localhost:9004/notice_list.do" target="_parent" > -->
 				<a href="http://localhost:9004/notice_list" target="_parent" >
 					<img src="http://localhost:9004/images/loginCustomer.png">
 					<span>공지사항</span>
 				</a>
 				<!-- 관리자 계정인 경우에만 admin 메뉴를 open -->
 				<c:if test="${sessionScope.sid == 'admin' }">
-<!-- 			<a href="http://localhost:9004/admin.do" target="_parent" > -->
 				<a href="http://localhost:9004/admin" target="_parent" >
 					<img src="http://localhost:9004/images/loginCustomer.png">
 					<span>Admin</span>
