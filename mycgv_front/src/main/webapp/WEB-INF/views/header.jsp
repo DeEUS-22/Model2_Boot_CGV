@@ -35,7 +35,7 @@
 			</a>
 			<a href="http://localhost:9004/mycgv" target="_parent">
 				<img src="http://localhost:9004/images/loginMember.png">
-				<span>MY CGV</span>
+				<span>영화순위</span>
 			</a>
 			<a href="http://localhost:9004/board_list" target="_parent" >
 				<img src="http://localhost:9004/images/loginCustomer.png">
@@ -61,7 +61,7 @@
 			</a>
 			<a href="http://localhost:9004/mycgv" target="_parent">
 				<img src="http://localhost:9004/images/loginMember.png">
-				<span>MY CGV</span>
+				<span>영화순위</span>
 			</a>
 			<a href="http://localhost:9004/board_list" target="_parent" >
 				<img src="http://localhost:9004/images/loginCustomer.png">

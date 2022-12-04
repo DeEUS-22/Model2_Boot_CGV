@@ -1,6 +1,11 @@
 
-
-	body { margin:0; padding:0; }
+	/********************
+		Header css
+	*********************/
+	body {
+		margin : 0px;
+		padding : 0px;
+	}
 	.header_contents1 , .header_contents2 nav{
 		width:980px; margin:0 auto;
 	}
@@ -22,8 +27,9 @@
 	.header_contents1 div:last-child {
 		display:flex; align-items:center;
 	} 
+	
 	.header_contents1 div:last-child > img {
-		/* border:1px solid green; */
+	/* 	border:1px solid green;  */
 		width:136px; height:39px; margin-top:5px;
 	} 
 	.header_contents1 div:last-child > a {
@@ -32,7 +38,12 @@
 	} 
 	.header_contents1 div:last-child > a > img {
 		width:36px; height:36px; margin-top:5px;
-	} 
+	}
+	
+	.header_contents1 div:last-child > a:nth-child(1) > img {
+		width:120px; height:36px; margin-top:20px;
+	}
+	
 	.header_contents1 div:last-child > a > img + a{
 		margin-left:34px
 	} 
@@ -72,17 +83,17 @@
 	dl.dropdown-content dt + dd{margin-top:8px;}
 	dl.dropdown-content dd h3{font-weight:400; font-size:14px; color:#666; line-height:2.143em;}
 	
-	/* CSS�� hover�� �̿��� ���콺 ���� ��� */
+	/* CSS의 hover를 이용한 마우스 오버 기능 */
 	.header_contents2 .dropdown:hover .dropdown-content {
 		display : block; 
-	}  
+	} 
 	
- 	
- 	
- 	/********************************************************
-	// footer
-	********************************************************/
- 	footer {
+	
+	/********************
+		Footer css
+	*********************/
+	
+	footer {
  		margin:0; padding-top:50px;
  		/* border:1px solid coral; */
  		clear:both;
@@ -134,14 +145,17 @@
  		padding:5px 0; margin:0;
  		font-size:12px; 		
  	}
-  	
- 
- 	/********************************************************
-	// content
-	********************************************************/
-  	div.content, .carousel { width:980px; margin:0 auto; /* border:2px solid red; */ }
  	
- 	/******* ������Ʈ *****************/
+ 	/********************
+		index css
+	*********************/
+	div.content { width:980px; margin:0 auto; /* border:2px solid red; */ }
+ 	.carousel {margin-top:0px; width:100%; 
+ 				background-color:powderblue;
+ 				height:200px; text-align:center;			
+ 	}
+ 	
+ 	/******* 무비차트 *****************/
  	div.content section:first-child {
  		/* border:2px solid blue; */
  		padding-top:20px;
@@ -176,23 +190,20 @@
  		padding:15px;
  		float:left;
  	}
- 	
- 	div.content section:nth-child(2) ul{ 			
+ 	div.content section:nth-child(2) ul{ 		
  		list-style-type:none;
- 		padding:0; margin-top:5px; 
+ 		padding:0; margin-top:17px; 
  		float:left; 
  		width:45%;
- 		height:200px;
+ 		height:220px;
  	}
  	div.content section:nth-child(2) ul li{
  		border-bottom:2px solid #ccc;
- 		padding:8px;
+ 		padding:16px;
  	}
- 	
  	div.content section:nth-child(2) ul li:first-child{
  		border-top:2px solid #ccc;
  	}
- 	/*
  	div.content section:nth-child(2) ul li span:first-child{
  		font-size:20px;
  	}
@@ -201,8 +212,8 @@
  		border-radius:10px;
  		padding:16px;
  	}
- 	*/
- 	/***** ��ȭ ������ ***********/
+ 	
+ 	/***** 영화 관람권 ***********/
  	div.content section:last-child {
  		display:flex;
  		justify-content:space-between;
@@ -250,10 +261,15 @@
  		padding-top:5px;
  	}
  	
- 	/***********************************
- 		�α�����
- 	***********************************/
- 	div.content > h1 {
+ 	h3 {
+ 		margin-left : 20px;
+ 	}
+ 	
+ 	/********************
+		Login css
+	*********************/
+	
+	div.content > h1 {
  		/*border:1px solid blue;*/
  		margin-left:100px;
  	}
@@ -307,12 +323,13 @@
 		border:1px solid coral;
 		margin-right:5px;
 	}
- 	
- 	/***********************************
- 		ȸ������
- 	***********************************/
- 	form[name='joinForm'] { 
-/*  		border:1px solid red;  */
+	
+	/********************
+		Join css
+	*********************/
+	
+	form[name='joinForm'] { 
+	/* 	border:1px solid red;  */
  		width:68%;
  		margin:0 auto;
  		background-color:#f2f2f2;
@@ -362,7 +379,7 @@
 	form[name='joinForm']  li:nth-child(3) span {
 		font-size:11px;
 		display:inline-block;
-		padding-left:160px;
+		/* padding-left:160px; */
 	}
 	form[name='joinForm'] li:nth-child(6) input, 
 	form[name='joinForm'] select, 
@@ -398,45 +415,15 @@
 		display:inline-block;
 		width:30%;
 	}	
-	form[name='joinForm'] span,
-	form[name='joinForm']  select { font-size:12px; }
+	form[name='joinForm'] span,	form[name='joinForm']  select { 
+		font-size:12px; 
+	}
 	
-	/***********************************
- 		����CGV
- 	***********************************/
- 	div.content section.mycgv, div.content section.adminMain {
- 		/* border:1px solid red;  */ 
- 		width:50%; margin:0 auto; 	
- 		display:flex;
- 		justify-content:space-between;
- 		padding-top:50px;
- 	}
- 	div.content section.mycgv article,
- 	section.adminMain article{
- 		background-color:powderblue;
- 		padding:40px  30px; 
- 		text-align:center;
- 		border:1px solid #f2f2f2;
- 		border-radius:10px;
- 		font-weight:bold;
- 	}	
- 	div.content section.mycgv article{
- 		background-color:powderblue;
- 		width:28%;
- 	} 	
- 	div.content section.adminMain article{
- 		background-color:MediumSeaGreen;
- 		width:28%;
- 	}
- 	div.content section.adminMain article a{
- 		color:#fff;
- 	}
- 	
-
-	/***********************************
- 		�Խ���
- 	***********************************/
- 	table.board, form[name='boardWriteForm'], 
+	/********************
+		board css
+	*********************/
+	
+	table.board, form[name='boardWriteForm'], 
  	table.boardContent, form[name='boardUpdateForm'],
  	form[name='boardDeleteForm'] {
  		/* border:1px solid red; */
@@ -547,12 +534,15 @@
  	form[name='boardDeleteForm'] li:nth-child(2) div {
  		text-align:center;
  		font-size:20px; 
- 		font-family:'���ʷչ���';
+ 		font-family:'함초롱바탕';
  		font-weight:bold;
  		padding:10px 0;
  	}
  	
-	/******** ��ư ���� ��Ÿ��  ******************/
+ 	
+ 	/********************
+		버튼 공통 css
+	*********************/
 	.btn_style {
 		font-size:12px;
 		width:100px;
@@ -563,7 +553,65 @@
 		margin-right:5px;
 	}
 	
+	.btn_style2 {
+		font-size:12px;
+		width:70px;
+		height:30px;
+		margin-top : 16px;
+		margin-right:10px;
+	}
+	
+	/********************
+		관리자 페이지
+	*********************/
+	div.content section.adminMain {
+ 		/* border:1px solid red;  */ 
+ 		width:50%; margin:0 auto; 	
+ 		display:flex;
+ 		justify-content:space-between;
+ 		padding-top:50px;
+ 	}
  	
+ 	section.adminMain article{
+ 		background-color:powderblue;
+ 		padding:40px  30px; 
+ 		text-align:center;
+ 		border:1px solid #f2f2f2;
+ 		border-radius:10px;
+ 		font-weight:bold;
+ 	}	
+ 	
+ 	div.content section.adminMain article{
+ 		background-color:MediumSeaGreen;
+ 		width:28%;
+ 	}
+ 	
+ 	div.content section.adminMain article a{
+ 		color:#fff;
+ 	}
+ 	
+ 	/***********************************
+ 		마이CGV
+ 	***********************************/
+ 	div.content section.mycgv {
+ 		/* border:1px solid red;  */ 
+ 		width:50%; margin:0 auto; 	
+ 		display:flex;
+ 		justify-content:space-between;
+ 		padding-top:50px;
+ 	}
+ 	div.content section.mycgv article {
+ 		background-color:powderblue;
+ 		padding:40px  30px; 
+ 		text-align:center;
+ 		border:1px solid #f2f2f2;
+ 		border-radius:10px;
+ 		font-weight:bold;
+ 	}	
+ 	div.content section.mycgv article{
+ 		background-color:powderblue;
+ 		width:28%;
+ 	} 	
  	
  	/***********************************
  		Carousel
@@ -578,11 +626,3 @@
 		height : 300px;
 	}
  	
- 	.btn_style2 {
-		font-size:12px;
-		width:70px;
-		height:30px;
-		margin-top : 16px;
-		margin-right:10px;
-	}
-	

@@ -21,7 +21,6 @@
 		<section class="adminMain">
 			<article><a href="admin_notice_list">공지사항 <br> 관리</a></article>
 			<article><a href="admin_member_list">회원 관리</a></article>
-			<article><a href="admin_movie_list">영화 관리</a></article>
 		</section>
 	</div>
 	

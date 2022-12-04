@@ -24,6 +24,10 @@ public class NoticeController {
 	@Autowired
 	private PageService pageService;
 	
+	@GetMapping("/notice_list")
+	public String board_list_root() {
+		return "/notice/notice_list" ;
+	}
 	
 	@GetMapping("/notice_list_json/{rpage}")
 	public String notice_list_json(@PathVariable String rpage, Model model) {

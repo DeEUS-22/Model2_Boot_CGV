@@ -12,7 +12,6 @@ import com.springboot.mycgv.dto.NoticeDto;
 import com.springboot.mycgv.dto.PageDto;
 import com.springboot.mycgv.service.FileService;
 import com.springboot.mycgv.service.MemberService;
-import com.springboot.mycgv.service.MovieService;
 import com.springboot.mycgv.service.NoticeService;
 import com.springboot.mycgv.service.PageService;
 
@@ -31,8 +30,6 @@ public class AdminController {
 	@Autowired
 	private MemberService memberService;
 	
-	@Autowired
-	private MovieService movieService;
 
 	@GetMapping("/admin")
 	public String admin() {
@@ -198,11 +195,5 @@ public class AdminController {
 		return "redirect:/admin_notice_list/1";
 		
 	}
-	
-	/*****
-	 * movie
-	 */
-	
-	
 	
 }
