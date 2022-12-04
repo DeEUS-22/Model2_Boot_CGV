@@ -9,10 +9,12 @@ import com.springboot.mycgv.dto.PageDto;
 
 @Mapper
 public interface MovieMapper {
-	
+
 	List<MovieDto> getMovieList(PageDto pageDto);
 	MovieDto getMovieContent(String mid);
 	int getMovieInsert(MovieDto movieDto);
 	int getMovieInsertFile(MovieDto movieDto);
 
+	
 }
+

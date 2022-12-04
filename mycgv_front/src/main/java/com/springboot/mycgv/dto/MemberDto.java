@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class MemberDto {
+
 	private int rno;
 	private String id;
 	private String pass;
@@ -21,25 +22,28 @@ public class MemberDto {
 	private String intro;
 	private String mdate;
 	private String[] hobby;
+	
 	private String email;
 	private String pnumber;
 	private String hobbylist;
 	private String address;
 	
+	
 	public String getEmail() {
-		return email1+"@"+email2;
+		return email1 + "@" + email2;
 	}
 	
 	public String getPnumber() {
 		if(pnumber == null) {
 			return pnum1+"-"+pnum2+"-"+pnum3;
 		}else {
-			return pnumber;
+			return pnumber; 
 		}
 	}
+	
 	public String getHobbylist() {
 		if(hobbylist == null) {
-			return String.join(",",  hobby);
+			return String.join(",", hobby);
 		}else {
 			return hobbylist;
 		}
@@ -54,4 +58,13 @@ public class MemberDto {
 		}
 	}
 	
+	
+	
 }
+
+
+
+
+
+
+

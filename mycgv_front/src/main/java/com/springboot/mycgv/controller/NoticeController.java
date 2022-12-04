@@ -27,8 +27,8 @@ public class NoticeController {
 	
 	@GetMapping("/notice_list_json/{rpage}")
 	public String notice_list_json(@PathVariable String rpage, Model model) {
-		PageDto pageDto = pageService.getPageResult(rpage, "notice");
-		ArrayList<NoticeDto> list = (ArrayList<NoticeDto>) noticeService.getNoticeList(pageDto);
+		PageDto pageDto = pageService.getPageCount(rpage, "notice");
+		ArrayList<NoticeDto> list = (ArrayList<NoticeDto>) noticeService.noticeList(pageDto);
 		
 		JsonObject jobject = new JsonObject();
 		JsonArray jarray = new JsonArray();
@@ -55,8 +55,8 @@ public class NoticeController {
 	
 	@GetMapping("/notice_content_json/{nid}")
 	public String notice_content_json(@PathVariable String nid, Model model) {
-		NoticeDto noticeDto = noticeService.getNoticeContent(nid);
-		noticeService.getNoticeHits(nid);
+		NoticeDto noticeDto = noticeService.noticeContent(nid);
+		noticeService.updateHits(nid);
 		
 		JsonObject jobject = new JsonObject();
 		Gson gson = new Gson();
@@ -70,9 +70,5 @@ public class NoticeController {
 		jobject.addProperty("ndate", noticeDto.getNdate());
 		
 		return gson.toJson(jobject);
-	}
-	@GetMapping("/notice_list")
-	public String notice_list_json_root() {
-		return "/notice/notice_list";
 	}
 }

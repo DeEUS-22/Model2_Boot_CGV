@@ -33,5 +33,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="getUpdateHits" parameterType="java.lang.String">
 		update cgv_board set bhits=bhits+1 where bid =#{bid}
 	</update>
+
 	
 </mapper>

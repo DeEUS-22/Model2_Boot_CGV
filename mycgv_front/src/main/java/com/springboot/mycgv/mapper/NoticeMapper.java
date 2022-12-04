@@ -9,15 +9,13 @@ import com.springboot.mycgv.dto.PageDto;
 
 @Mapper
 public interface NoticeMapper {
-
+	
 	List<NoticeDto> noticeList(PageDto pageDto);
 	NoticeDto noticeContent(String nid);
 	int noticeWrite(NoticeDto noticeDto);
 	int noticeUpdate(NoticeDto noticeDto);
 	int noticeDelete(NoticeDto noticeDto);
-	int getNoticeHits(String nid);
+	int updateHits(String nid);
 	
-	List<NoticeDto> getNoticeList(PageDto pageDto);
-	NoticeDto getNoticeContent(String nid);
-	
+
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.springboot.mycgv.dto.MemberDto;
 import com.springboot.mycgv.dto.PageDto;
+import com.springboot.mycgv.dto.SessionDto;
 import com.springboot.mycgv.mapper.MemberMapper;
 
 @Service
@@ -15,19 +16,12 @@ public class MemberService {
 	@Autowired
 	private MemberMapper memberDao;
 	
-	
-	/**
-	 * 회원가입
-	 */
-	public int getJoin(MemberDto memberDto) {
-		return memberDao.getJoin(memberDto);
+	public int join(MemberDto memberDto) {
+		return memberDao.join(memberDto);
 	}
 	
-	/**
-	 * 로그임
-	 */
-	public int getLogin(MemberDto memberDto) {
-		return memberDao.getLogin(memberDto);
+	public int login(MemberDto memberDto) {
+		return memberDao.login(memberDto);
 	}
 	
 	public List<MemberDto> getMemberList(PageDto pageDto){

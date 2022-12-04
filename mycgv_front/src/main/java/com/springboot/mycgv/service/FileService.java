@@ -19,16 +19,14 @@ public class FileService {
 	private String uploadPath;
 
 	public boolean fileCheck(MultipartFile file) {
+		System.out.println(uploadPath);
 		if(file.getOriginalFilename().equals("")) {
 			return false;
 		}else {
 			return true;
-		}		
+		}
 	}
-	
-	/**
-	 * BoardDto, NoticeDto, MemberDto 객체의 공통적인 부모 찾기 ----> Object
-	 */
+
 	public Object init(Object object, String objName) {
 		
 		Object objDto = null;
@@ -83,7 +81,8 @@ public class FileService {
 
 		return objDto;
 	}
-	
+
+
 	public void saveFile(Object object, String objName) throws Exception {
 		
 		Object objDto = null;
@@ -98,18 +97,21 @@ public class FileService {
 			NoticeDto dto = (NoticeDto)object;
 			File file = new File(uploadPath + dto.getNsfile());
 			dto.getFile1().transferTo(file);
-	
+
 			objDto = dto;
 		}
 		
 	}
-	
-	
+
+
 	public void deleteFile(String bsfile) throws Exception{
 		File file = new File(uploadPath + bsfile);
 		if(file.exists()) {
 			file.delete();
 		}
 	}
+
+	
+	
 	
 }

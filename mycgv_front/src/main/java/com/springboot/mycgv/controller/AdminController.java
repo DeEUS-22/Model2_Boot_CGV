@@ -171,7 +171,7 @@ public class AdminController {
 		
 		model.addAttribute("vo", noticeService.noticeContent(nid));
 		model.addAttribute("rpage", rpage);
-		noticeService.getNoticeHits(nid);
+		noticeService.updateHits(nid);
 		
 		
 		return "/admin/admin_notice/admin_notice_content";

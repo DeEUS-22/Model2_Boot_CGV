@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class NoticeDto {
+
 	private int rno;
 	private String nid;
 	private String ntitle;
@@ -15,4 +16,6 @@ public class NoticeDto {
 	private int nhits;
 	private String ndate;
 	private MultipartFile file1;
+	
+	
 }

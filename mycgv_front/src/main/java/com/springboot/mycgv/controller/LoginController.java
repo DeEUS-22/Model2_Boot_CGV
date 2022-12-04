@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springboot.mycgv.dto.MemberDto;
+import com.springboot.mycgv.dto.SessionDto;
 import com.springboot.mycgv.service.MemberService;
 
 @Controller
@@ -24,7 +25,7 @@ public class LoginController {
 	
 	@PostMapping("/login")
 	public String login_post(MemberDto memberDto, Model model, HttpSession session) {
-		int result = memberService.getLogin(memberDto);
+		int result = memberService.login(memberDto);
 		
 		if(result == 1) {
 			session.setAttribute("sid", memberDto.getId());

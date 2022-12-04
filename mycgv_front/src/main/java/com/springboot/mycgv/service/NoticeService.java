@@ -35,15 +35,8 @@ public class NoticeService {
 		return noticeDao.noticeDelete(noticeDto);
 	}
 	
-	public int getNoticeHits(String nid) {
-		return noticeDao.getNoticeHits(nid);
+	public int updateHits(String nid) {
+		return noticeDao.updateHits(nid);
 	}
 	
-	public List<NoticeDto> getNoticeList(PageDto pageDto) {
-		return noticeDao.getNoticeList(pageDto);
-	}
-	
-	public NoticeDto getNoticeContent(String nid) {
-		return noticeDao.getNoticeContent(nid);
-	}
 }

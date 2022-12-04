@@ -8,6 +8,7 @@ import lombok.Data;
 
 @Data
 public class MovieDto {
+
 	private int rno;
 	private String mcategory; 
 	private String mname; 
@@ -21,5 +22,6 @@ public class MovieDto {
 	private MultipartFile[] files;
 	private ArrayList<String> mfiles = new ArrayList<String>();  
 	private ArrayList<String> msfiles = new ArrayList<String>();  
+	
 	
 }

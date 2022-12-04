@@ -14,7 +14,7 @@ import com.springboot.mycgv.service.MemberService;
 @Controller
 public class JoinController {
 	
-	@Autowired
+	 @Autowired
 	   private MemberService memberService;
 	   
 	   //id_check : 아이디 중복 체크  -  Ajax 호출
@@ -26,23 +26,6 @@ public class JoinController {
 	      return String.valueOf(result);
 	   }
 	   
-	   //joinCheck.do
-	 /*  @RequestMapping(value = "/joinCheck", method = RequestMethod.POST)
-	   public ModelAndView joinCheck(MemberDto dto) {
-	      ModelAndView mv = new ModelAndView();
-
-	      int result = memberService.getJoinResult(dto);
-	      
-	      if(result == 1) {
-	         mv.addObject("join_result", "ok");
-	         mv.setViewName("/login/login");
-	      }else {
-	         mv.setViewName("/error_page");
-	      }
-	      
-	      return mv;
-	   }
-	   */
 		
 	   //join.do : 회원가입 폼
 	   @GetMapping("/join")
@@ -53,7 +36,7 @@ public class JoinController {
 	   @PostMapping("/join")
 	   public String join_post(MemberDto memberdto, Model model) {
 		   
-		   int result = memberService.getJoin(memberdto);
+		   int result = memberService.join(memberdto);
 		   
 		   if(result == 1) model.addAttribute("join_result", "ok");
 		   else model.addAttribute("join_result", "fail");

@@ -18,14 +18,13 @@ public class BoardService {
 		return boardDao.getList(pageDto);
 	}
 	
-	public int getWrite(BoardDto boardDto) {
-		return boardDao.getWrite(boardDto);
-	}
-	
 	public BoardDto getContent(String bid) {
 		return boardDao.getContent(bid);
 	}
-	
+
+	public int getWrite(BoardDto boardDto) {
+		return boardDao.getWrite(boardDto);
+	}
 	
 	public int getUpdate(BoardDto boardDto) {
 		return boardDao.getUpdate(boardDto);
