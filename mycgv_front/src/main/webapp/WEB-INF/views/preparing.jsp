@@ -4,9 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>페이지 준비중</title>
+<style>
+	* {
+		margin:0;
+		padding:0;
+	}
+	
+	img {
+		transform: translate(85%, 50%);
+		width: 700px;
+	}
+</style>
 </head>
 <body>
-
+	<img src="http://localhost:9004/images/bg_ing.png">
 </body>
 </html>

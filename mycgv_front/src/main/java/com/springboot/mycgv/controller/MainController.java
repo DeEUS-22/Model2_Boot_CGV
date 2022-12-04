@@ -7,6 +7,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
 	
 	/**
+	 * 
+	 */
+	@GetMapping("preparing")
+	public String prparing() {
+		return "/preparing";
+	}
+	
+	/**
+	 * 
+	 */
+	@GetMapping("error_page")
+	public String error() {
+		return "/error_page";
+	}
+	
+	/**
 	 * "/"
 	 */
 	@GetMapping("/")
@@ -17,12 +33,6 @@ public class MainController {
 	/**
 	 * footer.do
 	 */
-	/*
-	@RequestMapping(value="/footer.do", method=RequestMethod.GET) - 3버전
-	public String footer() {
-		return "footer";
-	}
-	*/
 	@GetMapping("/footer") //4버전
 	public String footer() {
 		return "/footer";
@@ -30,7 +40,6 @@ public class MainController {
 	/**
 	 * header.do
 	 */
-	//@RequestMapping(value="/header.do", method=RequestMethod.GET)
 	@GetMapping("/header")
 	public String header() {
 	//	return "header";
@@ -41,7 +50,6 @@ public class MainController {
 	/**
 	 * index.do
 	 */
-	//@RequestMapping(value="/index.do", method=RequestMethod.GET)
 	@GetMapping("/index")
 	public String index() {
 	//	return "index";

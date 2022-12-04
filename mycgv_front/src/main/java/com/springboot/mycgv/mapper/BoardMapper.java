@@ -14,4 +14,5 @@ public interface BoardMapper {
 	BoardDto getContent(String bid);
 	int getUpdate(BoardDto boardDto);
 	int getDelete(BoardDto boardDto);
+	int getUpdateHits(String bid);
 }

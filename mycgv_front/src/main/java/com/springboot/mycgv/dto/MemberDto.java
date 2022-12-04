@@ -24,6 +24,7 @@ public class MemberDto {
 	private String email;
 	private String pnumber;
 	private String hobbylist;
+	private String address;
 	
 	public String getEmail() {
 		return email1+"@"+email2;
@@ -44,5 +45,13 @@ public class MemberDto {
 		}
 	}
 	
+	public String getAddress() {
+		if(address == null) {
+			return addr1 + " " + addr2;
+			
+		}else {
+			return address;
+		}
+	}
 	
 }

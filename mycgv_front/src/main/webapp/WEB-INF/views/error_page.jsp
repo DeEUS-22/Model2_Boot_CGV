@@ -20,6 +20,6 @@
 </style>
 </head>
 <body>
-	<img src="http://localhost:9000/model2_cgv/resources/images/error_msg.jpg">
+	<img src="http://localhost:9004/images/error_msg.jpg">
 </body>
 </html>

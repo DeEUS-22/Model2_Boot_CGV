@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springboot.mycgv.mapper.MovieMapper">
+
+	<select id="getMovieList" parameterType="com.springboot.mycgv.dto.PageDto" resultType="com.springboot.mycgv.dto.MovieDto">
+		select rno, mid, mcategory, mname, mdate 
+			from(select rownum rno, mid, mcategory, mname, mdate 
+			from(select mid, mcategory, mname, mdate from cgv_movie order by mdate desc))
+			where rno between #{startCount} and #{endCount}
+	</select>
+	
+	<select id="getMovieContent" parameterType="java.lang.String" resultType="com.springboot.mycgv.dto.MovieDto">
+		select cm.mid, mcategory, mname, mdesc, mdate, mfile1, msfile1, mfile2, msfile2
+			from cgv_movie cm, cgv_movie_file cf
+			where cm.mid=cf.mid and cm.mid=#{mid}
+	</select>
+	
+	<insert id="getMovieInsert" parameterType="com.springboot.mycgv.dto.MovieDto">
+		insert into cgv_movie values('m_'||sequ_cgv_movie.nextval,#{mcategory}, #{mname}, #{mdesc}, sysdate)
+	</insert>
+	
+	<insert id="getMovieInsertFile" parameterType="com.springboot.mycgv.dto.MovieDto">
+		insert into cgv_movie_files values('f_'||sequ_cgv_movie_file.nextval, #{mfile1}, #{msfile1}, #{mfile2}, #{msfile2},#{mid})
+	</insert>
+	
+
+</mapper>

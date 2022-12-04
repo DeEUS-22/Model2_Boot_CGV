@@ -14,7 +14,6 @@ public class BoardDto {
 	private String bfile;
 	private String bsfile;
 	private String bdate;
-//	private CommonsMultipartFile file1; - 이건 3버전에서 사용하는 것
 	private MultipartFile file1; 
 	
 }

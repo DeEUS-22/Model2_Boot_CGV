@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.springboot.mycgv.mapper.PageMapper">
 
 	<select id="totalCount" parameterType="java.lang.String" resultType="int">
-		select count(*) from cgv_board
+		select count(*) from  <!-- 테이블명, 컬럼명에는 파라미터 직접매핑 불가 -->
+		<choose>
+			<when test = 'tableName.equals("board")'>
+				cgv_board
+			</when>
+			<when test = 'tableName.equals("notice")'>
+				cgv_notice
+			</when>
+			<when test = 'tableName.equals("movie")'>
+				cgv_movie
+			</when>
+			<when test= 'tableName.equals("movie_file")'>
+				cgv_movie_file
+			</when>
+			<when test= 'tableName.equals("member")'>
+				cgv_member
+			</when>
+		</choose>
+	
 	</select>
-	
-	
 	
 </mapper>

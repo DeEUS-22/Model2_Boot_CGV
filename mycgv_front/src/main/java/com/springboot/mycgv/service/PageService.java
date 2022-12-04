@@ -12,14 +12,14 @@ public class PageService {
 	@Autowired
 	private PageMapper pageDao;
 	
-	public PageDto getPageCount(String rpage) {
+	public PageDto getPageCount(String rpage, String tableName) {
 
 		int startCount = 0;
 		int endCount = 0;
-		int pageSize = 3;	
+		int pageSize = 5;	
 		int reqPage = 1;		
 		int pageCount = 1;	
-		int dbCount = pageDao.totalCount("cgv_board");	
+		int dbCount = pageDao.totalCount(tableName);	
 
 		if(dbCount % pageSize == 0){
 			pageCount = dbCount/pageSize;
