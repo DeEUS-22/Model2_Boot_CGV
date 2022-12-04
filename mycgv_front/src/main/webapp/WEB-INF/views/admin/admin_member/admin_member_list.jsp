@@ -7,42 +7,42 @@
 <head>
 <meta charset="UTF-8">
 <title>CGV</title>
-<link rel="stylesheet"  href="http://localhost:9000/mycgv/resources/css/mycgv.css">
-<link rel="stylesheet"  href="http://localhost:9000/mycgv/resources/css/am-pagination.css">
-<script src="http://localhost:9000/mycgv/resources/js/jquery-3.6.0.min.js"></script>
-<script src="http://localhost:9000/mycgv/resources/js/am-pagination.js"></script>
+<link rel="stylesheet"  href="http://localhost:9004/css/cgv.css">
+<link rel="stylesheet"  href="http://localhost:9004/css/am-pagination.css">
+<script src="http://localhost:9004/js/jquery-3.6.0.min.js"></script>
+<script src="http://localhost:9004/js/am-pagination.js"></script>
 <script>
-	$(document).ready(function(){
-		
-		//페이징 리스트 출력
-		var pager = jQuery('#ampaginationsm').pagination({
-		
-		    maxSize: 7,	    		// max page size
-		    totals: '${dbCount}',	// total rows	
-		    page: '${rpage}',		// initial page		
-		    pageSize: '${pageSize}',	// max number items per page
-		
-		    // custom labels		
-		    lastText: '&raquo;&raquo;', 		
-		    firstText: '&laquo;&laquo;',		
-		    prevText: '&laquo;',		
-		    nextText: '&raquo;',
-				     
-		    btnSize:'sm'	// 'sm'  or 'lg'		
-		});
-		
-		//페이징 번호 클릭 시 이벤트 처리
-		jQuery('#ampaginationsm').on('am.pagination.change',function(e){		
-			   jQuery('.showlabelsm').text('The selected page no: '+e.page);
-	           $(location).attr('href', "http://localhost:9000/mycgv/admin_member_list.do?rpage="+e.page);         
-	    });
-		
- 	});
+$(document).ready(function(){
+	
+	//페이징 리스트 출력
+	var pager = jQuery('#ampaginationsm').pagination({
+	
+	    maxSize: 7,	    		// max page size
+	    totals: ${page.dbCount},	// total rows	
+	    page: ${page.reqPage},		// initial page		
+	    pageSize: ${page.pageSize},	// max number items per page
+	
+	    // custom labels		
+	    lastText: '&raquo;&raquo;', 		
+	    firstText: '&laquo;&laquo;',		
+	    prevText: '&laquo;',		
+	    nextText: '&raquo;',
+			     
+	    btnSize:'sm'	// 'sm'  or 'lg'		
+	});
+	
+	//페이징 번호 클릭 시 이벤트 처리
+	jQuery('#ampaginationsm').on('am.pagination.change',function(e){		
+		   jQuery('.showlabelsm').text('The selected page no: '+e.page);
+           $(location).attr('href', "http://localhost:9000/admin_member_list/"+e.page);         
+    });
+	
+	});
 </script> 
 </head>
 <body>
 	<!-- Header Include -->
-	<iframe src="http://localhost:9000/mycgv/header.do" width="100%" height="160px" scrolling="no" frameborder=0 ></iframe>
+	<iframe src="http://localhost:9004/header" width="100%" height="160px" scrolling="no" frameborder=0 ></iframe>
 	
 	
 	<!---------------------------------------------->
@@ -62,7 +62,7 @@
 			<c:forEach var="vo"  items="${list}">
 			<tr>
 				<td>${vo.rno }</td>
-				<td><a href="admin_member_content.do?id=${vo.id }">${vo.id }</a></td>
+				<td><a href="/admin_member_content/${vo.id }/${page.reqPage}">${vo.id }</a></td>
 				<td>${vo.name }</td>
 				<td>${vo.pnumber }</td>
 				<td>${vo.mdate }</td>
@@ -76,7 +76,7 @@
 	</div>
 	
 	<!-- footer Include -->
-	<iframe src="http://localhost:9000/mycgv/footer.do" width="100%" height="530px" scrolling="no" frameborder=0></iframe>
+	<iframe src="http://localhost:9004/footer" width="100%" height="530px" scrolling="no" frameborder=0></iframe>
 	
 </body>
 </html>

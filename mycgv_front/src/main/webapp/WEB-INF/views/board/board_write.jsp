@@ -5,13 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>CGV</title>
-<link rel="stylesheet"  href="http://localhost:9004/css/mycgv.css">
+<link rel="stylesheet"  href="http://localhost:9004/css/cgv.css">
 <script src="http://localhost:9004/js/jquery-3.6.0.min.js"></script>
 <script src="http://localhost:9004/js/mycgv_jquery.js"></script>
 </head>
 <body>
 	<!-- Header Include -->
-<!--<iframe src="http://localhost:9004/header.do" width="100%" height="160px" scrolling="no" frameborder=0 ></iframe> -->
 	<iframe src="http://localhost:9004/header" width="100%" height="160px" scrolling="no" frameborder=0 ></iframe>
 	
 	
@@ -20,8 +19,6 @@
 	<!---------------------------------------------->
 	<div class="content">
 		<h1>게시판-글쓰기</h1>
-<!-- 	<form name="boardWriteForm" action="board_write.do" method="post"> -->
-<!-- 	<form name="boardWriteForm" action="board_write" method="post"> -->
 		<form name="boardWriteForm" action="/board_write" method="post" enctype="multipart/form-data">
 			<ul>
 				<li>
@@ -39,7 +36,7 @@
 				<li>
 					<button type="button" class="btn_style" id="btnBoardWrite">등록완료</button>
 					<button type="reset" class="btn_style">다시쓰기</button>
-					<a href="board_list.do">
+					<a href="/board_list">
 						<button type="button" class="btn_style">리스트</button>
 					</a>
 				</li>
@@ -49,7 +46,6 @@
 	</div>
 	
 	<!-- footer Include -->
-<!--<iframe src="http://localhost:9004/footer.do" width="100%" height="530px" scrolling="no" frameborder=0></iframe> -->
 	<iframe src="http://localhost:9004/footer" width="100%" height="530px" scrolling="no" frameborder=0></iframe>
 	
 </body>

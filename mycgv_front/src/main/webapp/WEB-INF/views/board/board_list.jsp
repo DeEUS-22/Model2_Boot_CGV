@@ -43,7 +43,6 @@
 </head>
 <body>
 	<!-- Header Include -->
-<!--<iframe src="http://localhost:9004/header.do" width="100%" height="160px" scrolling="no" frameborder=0 ></iframe>-->
 	<iframe src="http://localhost:9004/header" width="100%" height="160px" scrolling="no" frameborder=0 ></iframe>
 	
 	
@@ -55,8 +54,7 @@
 		<table class="board">
 			<tr>
 				<td colspan="4">
-				<!--<a href="board_write"> -->
-					<a href="/board_write"> <!-- /를 안붙여주면 현재 호출된 페이지 뒤에 이어서 board_write가 붙어서 에러가 발생한다. /를 붙여줘라 + /board_list를 컨텍스트 패쓰로 인식해서 생기는 문제다. -->
+					<a href="/board_write">
 					<button type="button" class="btn_style">글쓰기</button>
 					</a>
 				</td>
@@ -71,8 +69,7 @@
 			<c:forEach var="vo" items="${list}">
 			<tr>
 				<td>${vo.rno}</td>
-<%-- 				<td><a href="board_content.do?bid=${vo.bid}">${vo.btitle}</a></td> 쿼리스트링방식--%>
-				<td><a href="/board_content/${vo.bid}">${vo.btitle}</a></td> <!-- board_content앞에 /를 안주면 board_list 뒤에 붙는다. 컨텍스트 패스 뒤에 바로 붙인다는 뜻으로 /를 처리해주어야 한다. -->
+				<td><a href="/board_content/${vo.bid}">${vo.btitle}</a></td>
 				<td>${vo.bdate }</td>
 				<td>${vo.bhits }</td>
 			</tr>

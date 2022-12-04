@@ -7,11 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>CGV</title>
-<link rel="stylesheet"  href="http://localhost:9000/mycgv/resources/css/mycgv.css">
+<link rel="stylesheet"  href="http://localhost:9004/css/mycgv.css">
 </head>
 <body>
 	<!-- Header Include -->
-	<iframe src="http://localhost:9000/mycgv/header.do" width="100%" height="160px" scrolling="no" frameborder=0 ></iframe>
+	<iframe src="http://localhost:9004/header" width="100%" height="160px" scrolling="no" frameborder=0 ></iframe>
 	
 	
 	<!---------------------------------------------->
@@ -34,25 +34,25 @@
 				<th>내용</th>
 				<td colspan="3">${vo.ncontent }<br><br>
 				<c:if test="${vo.nsfile != null }">
-					<img src="http://localhost:9000/mycgv/resources/upload/${vo.nsfile}"
-						width="100"  height="70">
+					<img src="http://localhost:9004/upload/${vo.nsfile}"
+						width="50%" >
 				</c:if>
 				<br><br></td>
 			</tr>
 			<tr>
 				<td colspan="4">
-					<a href="admin_notice_update.do?nid=${vo.nid }"><button type="button" class="btn_style">수정하기</button></a>
-					<a href="admin_notice_delete.do?nid=${vo.nid }"><button type="button" class="btn_style">삭제하기</button></a>
-					<a href="admin_notice_list.do">
+					<a href="/admin_notice_update/${vo.nid }/${rpage}"><button type="button" class="btn_style">수정하기</button></a>
+					<a href="/admin_notice_delete/${vo.nid }/${rpage}"><button type="button" class="btn_style">삭제하기</button></a>
+					<a href="/admin_notice_list/${rpage}">
 						<button type="button" class="btn_style">리스트</button></a>
-					<a href="http://localhost:9000/mycgv/admin.do"><button type="button" class="btn_style">관리자홈</button></a>
+					<a href="http://localhost:9004/admin"><button type="button" class="btn_style">관리자홈</button></a>
 				</td>
 			</tr>			
 		</table>	
 	</div>
 	
 	<!-- footer Include -->
-	<iframe src="http://localhost:9000/mycgv/footer.do" width="100%" height="530px" scrolling="no" frameborder=0></iframe>
+	<iframe src="http://localhost:9004/footer" width="100%" height="530px" scrolling="no" frameborder=0></iframe>
 	
 </body>
 </html>

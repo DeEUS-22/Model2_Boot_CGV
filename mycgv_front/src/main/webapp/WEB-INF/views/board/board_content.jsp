@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>CGV</title>
-<link rel="stylesheet"  href="http://localhost:9004/css/mycgv.css">
+<link rel="stylesheet"  href="http://localhost:9004/css/cgv.css">
 </head>
 <body>
 	<!-- Header Include -->
@@ -35,16 +35,15 @@
 				<td colspan="3">${vo.bcontent }<br><br>
 				<c:if test="${vo.bsfile != null}">
 					<!--  파일업로드 출력 -->
-					<img src="http://localhost:9004/upload/${vo.bsfile}"
-						width="100" height="70">
+					<img src="http://localhost:9004/upload/${vo.bsfile}" width="100" height="70">
 				</c:if>
 				<br><br><br></td>
 			</tr>
 			<tr>
 				<td colspan="4">
-					<a href="/board_update/${vo.bid }"><button type="button" class="btn_style">수정하기</button></a>
-					<a href="/board_delete/${vo.bid }/${vo.bsfile}"><button type="button" class="btn_style">삭제하기</button></a>
-					<a href="/board_list/1">
+					<a href="/board_update/${vo.bid }/${rpage}"><button type="button" class="btn_style">수정하기</button></a>
+					<a href="/board_delete/${vo.bid }/${rpage}"><button type="button" class="btn_style">삭제하기</button></a>
+					<a href="/board_list/${rpage}">
 						<button type="button" class="btn_style">리스트</button>
 					</a>
 				</td>

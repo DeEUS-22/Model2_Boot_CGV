@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>CGV</title>
-<link rel="stylesheet"  href="http://localhost:9004/css/mycgv.css">
+<link rel="stylesheet"  href="http://localhost:9004/css/cgv.css">
 </head>
 <body>
 	<!-- Header Include -->
@@ -23,15 +23,15 @@
 			<input type="hidden" name="bsfile" value="${bsfile}">
 			<ul>
 				<li>
-					<img src="http://localhost:9004/images/delete.jpg"> <!-- 휴지통 이미지 -->					
+					<img src="http://localhost:9000/images/delete.jpg"> <!-- 휴지통 이미지 -->					
 				</li>				
 				<li>
 					<div>정말로 삭제하시겠습니까?</div>
 				</li>
 				<li>
 					<button type="submit" class="btn_style">삭제완료</button>					
-					<a href="/board_content/${bid }"><button type="button" class="btn_style">이전페이지</button></a>
-					<a href="/board_list/1"><button type="button" class="btn_style">리스트</button></a>
+					<a href="/board_content/${bid }/${rpage}"><button type="button" class="btn_style">이전페이지</button></a>
+					<a href="/board_list/${rpage}"><button type="button" class="btn_style">리스트</button></a>
 				</li>
 			</ul>
 		</form>
@@ -39,7 +39,7 @@
 	</div>
 	
 	<!-- footer Include -->
-	<iframe src="http://localhost:9004/footer " width="100%" height="530px" scrolling="no" frameborder=0></iframe>
+	<iframe src="http://localhost:9004/footer" width="100%" height="530px" scrolling="no" frameborder=0></iframe>
 	
 </body>
 </html>

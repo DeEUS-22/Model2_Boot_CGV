@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>CGV</title>
-<link rel="stylesheet"  href="http://localhost:9004/css/mycgv.css">
+<link rel="stylesheet"  href="http://localhost:9004/css/cgv.css">
 <script src="http://localhost:9004/js/jquery-3.6.0.min.js"></script>
 <script src="http://localhost:9004/js/mycgv_jquery.js"></script>
 <style>
@@ -73,8 +73,8 @@
 				<li>
 					<button type="button" class="btn_style" id="btnBoardUpdate">수정완료</button>
 					<button type="reset" class="btn_style">다시쓰기</button>
-					<a href="/board_content/${vo.bid }"><button type="button" class="btn_style">이전페이지</button></a>
-					<a href="/board_list/1"><button type="button" class="btn_style">리스트</button></a>
+					<a href="/board_content/${vo.bid }/${rpage}"><button type="button" class="btn_style">이전페이지</button></a>
+					<a href="/board_list/${rpage}"><button type="button" class="btn_style">리스트</button></a>
 				</li>
 			</ul>
 		</form>

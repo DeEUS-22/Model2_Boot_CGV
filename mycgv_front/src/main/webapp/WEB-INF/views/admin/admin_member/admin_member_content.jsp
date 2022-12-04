@@ -7,11 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>CGV</title>
-<link rel="stylesheet"  href="http://localhost:9000/mycgv/resources/css/mycgv.css">
+<link rel="stylesheet"  href="http://localhost:9000/mycgv/resources/css/cgv.css">
 </head>
 <body>
 	<!-- Header Include -->
-	<iframe src="http://localhost:9000/mycgv/header.do" width="100%" height="160px" scrolling="no" frameborder=0 ></iframe>
+	<iframe src="http://localhost:9004/header" width="100%" height="160px" scrolling="no" frameborder=0 ></iframe>
 	
 	
 	<!---------------------------------------------->
@@ -30,7 +30,7 @@
 			</tr>		
 			<tr>				
 				<th>주소</th>
-				<td colspan="5">${address }</td>
+				<td colspan="5">${vo.address }</td>
 			</tr>
 			<tr>				
 				<th>연락처</th>
@@ -46,15 +46,15 @@
 			</tr>
 			<tr>
 				<td colspan="6">					
-					<a href="admin_member_list.do"><button type="button" class="btn_style">리스트</button></a>
-					<a href="admin.do"><button type="button" class="btn_style">관리자홈</button></a>
+					<a href="/admin_member_list/${rpage}"><button type="button" class="btn_style">리스트</button></a>
+					<a href="/admin"><button type="button" class="btn_style">관리자홈</button></a>
 				</td>
 			</tr>			
 		</table>	
 	</div>
 	
 	<!-- footer Include -->
-	<iframe src="http://localhost:9000/mycgv/footer.do" width="100%" height="530px" scrolling="no" frameborder=0></iframe>
+	<iframe src="http://localhost:9004/footer" width="100%" height="530px" scrolling="no" frameborder=0></iframe>
 	
 </body>
 </html>

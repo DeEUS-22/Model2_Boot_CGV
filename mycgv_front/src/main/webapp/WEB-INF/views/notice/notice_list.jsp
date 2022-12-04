@@ -5,15 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>CGV</title>
-<link rel="stylesheet"  href="http://localhost:9000/mycgv/resources/css/mycgv.css">
-<link rel="stylesheet"  href="http://localhost:9000/mycgv/resources/css/am-pagination.css">
-<script src="http://localhost:9000/mycgv/resources/js/jquery-3.6.0.min.js"></script>
-<script src="http://localhost:9000/mycgv/resources/js/am-pagination.js"></script>
-<script src="http://localhost:9000/mycgv/resources/js/mycgv_notice.js"></script>
+<link rel="stylesheet"  href="http://localhost:9004/css/cgv.css">
+<link rel="stylesheet"  href="http://localhost:9004/css/am-pagination.css">
+<script src="http://localhost:9004/js/jquery-3.6.0.min.js"></script>
+<script src="http://localhost:9004/js/am-pagination.js"></script>
+<script src="http://localhost:9004/js/mycgv_notice.js"></script>
 </head>
 <body>
 	<!-- Header Include -->
-	<iframe src="http://localhost:9000/mycgv/header.do" width="100%" height="160px" scrolling="no" frameborder=0 ></iframe>
+	<iframe src="http://localhost:9004/header" width="100%" height="160px" scrolling="no" frameborder=0 ></iframe>
 	
 	
 	<!---------------------------------------------->
@@ -24,7 +24,7 @@
 	</div>
 	
 	<!-- footer Include -->
-	<iframe src="http://localhost:9000/mycgv/footer.do" width="100%" height="530px" scrolling="no" frameborder=0></iframe>
+	<iframe src="http://localhost:9004/footer" width="100%" height="530px" scrolling="no" frameborder=0></iframe>
 	
 </body>
 </html>
