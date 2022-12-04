@@ -54,7 +54,7 @@ $(document).ready(function(){
 				});
 							
 				$("#more").click(function(){
-					$(location).attr("href","http://localhost:9000/mycgv/notice_list.do");
+					$(location).attr("href","http://localhost:9004/notice_list");
 				});			
 				
 			}//success

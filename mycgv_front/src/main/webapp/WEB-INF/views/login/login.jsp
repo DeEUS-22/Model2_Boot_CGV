@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>CGV</title>
-<link rel="stylesheet"  href="http://localhost:9004/css/mycgv.css">
+<link rel="stylesheet"  href="http://localhost:9004/css/cgv.css">
 <script src="http://localhost:9004/js/jquery-3.6.0.min.js"></script>
 <script src="http://localhost:9004/js/mycgv_jquery.js"></script>
 <script>

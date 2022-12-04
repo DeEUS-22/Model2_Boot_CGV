@@ -15,6 +15,9 @@ public interface NoticeMapper {
 	int noticeWrite(NoticeDto noticeDto);
 	int noticeUpdate(NoticeDto noticeDto);
 	int noticeDelete(NoticeDto noticeDto);
-	int updateHits(String nid);
+	int getNoticeHits(String nid);
+	
+	List<NoticeDto> getNoticeList(PageDto pageDto);
+	NoticeDto getNoticeContent(String nid);
 	
 }

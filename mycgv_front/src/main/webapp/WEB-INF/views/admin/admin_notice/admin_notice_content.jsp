@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>CGV</title>
-<link rel="stylesheet"  href="http://localhost:9004/css/mycgv.css">
+<link rel="stylesheet"  href="http://localhost:9004/css/cgv.css">
 </head>
 <body>
 	<!-- Header Include -->

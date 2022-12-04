@@ -171,7 +171,7 @@ public class AdminController {
 		
 		model.addAttribute("vo", noticeService.noticeContent(nid));
 		model.addAttribute("rpage", rpage);
-		noticeService.updateHits(nid);
+		noticeService.getNoticeHits(nid);
 		
 		
 		return "/admin/admin_notice/admin_notice_content";
@@ -266,4 +266,6 @@ public class AdminController {
 		return "redirect:/admin_notice_list/1";
 		
 	}
+	
+	
 }

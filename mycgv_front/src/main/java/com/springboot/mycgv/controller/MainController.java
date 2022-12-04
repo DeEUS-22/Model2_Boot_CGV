@@ -9,7 +9,7 @@ public class MainController {
 	/**
 	 * 
 	 */
-	@GetMapping("preparing")
+	@GetMapping("/preparing")
 	public String prparing() {
 		return "/preparing";
 	}
@@ -17,7 +17,7 @@ public class MainController {
 	/**
 	 * 
 	 */
-	@GetMapping("error_page")
+	@GetMapping("/error_page")
 	public String error() {
 		return "/error_page";
 	}

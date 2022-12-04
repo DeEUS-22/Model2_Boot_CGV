@@ -102,7 +102,7 @@ public class BoardController {
 	}*/
 	
 	/**
-	 * board_write.do : 게시판 글쓰기 화면
+	 * board_write : 게시판 글쓰기 화면
 	 */
 	@GetMapping("/board_write")
 	public String board_write_get() {
@@ -128,7 +128,7 @@ public class BoardController {
 	}
 	
 	/**
-	 * board_delete.do : 게시판 삭제 화면
+	 * board_delete : 게시판 삭제 화면
 	 */
 	@GetMapping("/board_delete/{bid}/{rpage}")
 	public String board_delete(@PathVariable String bid, @PathVariable String rpage, Model model) {
@@ -153,7 +153,7 @@ public class BoardController {
 	}
 	
 	/**
-	 * board_update.do : 게시판 수정 화면
+	 * board_update : 게시판 수정 화면
 	 */
 	@GetMapping("/board_update/{bid}/{rpage}")
 	public String board_update(@PathVariable String bid, @PathVariable String rpage, Model model) {
@@ -186,7 +186,7 @@ public class BoardController {
 	}
 	
 	/**
-	 * board_content.do : 게시판 상세 정보
+	 * board_content : 게시판 상세 정보
 	 */
 	@GetMapping("/board_content/{bid}/{rpage}")
 	public String board_content(@PathVariable String bid, @PathVariable String rpage, Model model) {
@@ -199,7 +199,7 @@ public class BoardController {
 	}
 	
 	/**
-	 * board_list.do : 게시판 전체 리스트 
+	 * board_list : 게시판 전체 리스트 
 	 */
 	@GetMapping("/board_list/{rpage}")
 	public String board_list(@PathVariable String rpage, Model model) {

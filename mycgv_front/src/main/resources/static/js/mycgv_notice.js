@@ -1,81 +1,57 @@
 $(document).ready(function(){
 		
-		//페이지가 로딩되면 바로 initAjax 함수를 호출하도록 함!!
-		initAjax(1);		
-		
+		initAjax(1);
 		function initAjax(rpage){
-			//페이지의 호출이 시작되면 바로 ajax를 통해 공지사항 리스트를 가져옴
+			$.ajax({
+				url : "/notice_list_json/"+rpage,
+				success : function(result){
+					//서버에서 데이터를 주고 받을 때는 String 형태로 전송하기 때문에 다시 JSON 객체로 변환하는 작업이 필요
+					let data = JSON.parse(result);
 					
-				$.ajax({
-					url:"notice_list_json.do?rpage="+rpage,
-					success:function(result){
-						//1. 서버에서 전송된 콜백함수의 파라미터값을 JSON 객체 변환
-						let dataset = JSON.parse(result); 
-						
-						//2. JSON 객체를 Dynamic HTML를 이용하여 화면에 결과 출력	
-						var output = "<table class='board'>";
-						output += "<tr>"
-						output += "<th>번호</th>"
-						output += "<th>제목</th>"
-						output += "<th>등록날짜</th>"
-						output += "<th>조회수</th>"
-						output += "</tr>"
-						for(obj of dataset.list){
-								output += "<tr>"
-								output += "<td>"+ obj.rno  +"</td>"
-								output += "<td><a href='#' class='bclass' id='"+ obj.nid+"'>"+ obj.ntitle +"</a></td>"
-								output += "<td>"+ obj.ndate +"</td>"
-								output += "<td>"+ obj.nhits +"</td>"
-								output += "</tr>"
+					output = "<table class = 'board'>";
+					output += "<tr><th>번호</th><th>제목</th><th>등록날짜</th><th>조회수</th></tr>";
+					if(data.list.length == 0){
+						output += "<tr><td colspan='4'>등록된 공지사항이 없습니다.</td></tr>"
+					}else{
+						for(dataset of data.list){
+							output += "<tr>";
+							output += "<td>" + dataset.rno + "</td>";
+							output += "<td><a href='#' class='bclass' id='" + dataset.nid + "'>" + dataset.ntitle + "</a></td>";
+							output += "<td>" + dataset.ndate + "</td>";
+							output += "<td>" + dataset.nhits + "</td>";
+							output += "</tr>";
 						}
-						output += "<tr>"
-						output += "<td colspan='4'><div id='ampaginationsm'></div></td>"
-						output += "</tr>"
-						output += "</table>";
-						
-			
-						//3. 출력
-						$("table.board").remove();
-						$("h1").after(output); 		
-						
-						
-						//페이징 리스트 출력 함수 호출			
-						noticePager(dataset.dbCount,dataset.pageSize,dataset.rpage);
-						
-						
-						//페이징 번호 클릭 시 이벤트 처리
-						jQuery('#ampaginationsm').on('am.pagination.change',function(e){
-							//alert(e.page);
-							   jQuery('.showlabelsm').text('The selected page no: '+e.page);
-					           //$(location).attr('href', "http://localhost:9000/mycgv/notice/notice_list.jsp?rpage="+e.page);
-					           //함수를 호출하는 방식으로 수정
-					           initAjax(e.page);
-					    });
-														
-						
-						//제목에 대한 이벤트 처리
-						$(".bclass").click(function(){
-							//alert("제목클릭;; nid=" + $(this).attr("id"));
-							//함수 호출을 통해 기능 구현 
-							noticeContent($(this).attr("id"));
-						});					
-						
-					}//success
-				});//ajax		
+					}
+					output += "<tr><td colspan='4'><div id='ampaginationsm'></div></td></tr>";
+					output += "<table>";
+					
+					//출력
+					$("table.board").remove();
+					$("h1").after(output);
+					
+					//페이징 처리 이벤트는 외부 함수를 호출하여 처리
+					noticePagination(data.dbCount, data.pageSize, data.reqPage);
+					
+					jQuery('#ampaginationsm').on('am.pagination.change',function(e){
+						jQuery('.showlabelsm').text('The selected page no: '+e.page);
+						initAjax(e.page);
+					});
+					
+					//게시판 상세보기
+					$(".bclass").click(function(){
+						noticeContent($(this).attr("id"), data.reqPage);
+					});
+				}//success
+			});//ajax
+		}//initAjax
 		
-		}//initAjax		
-		
-			
-		
-		//페이징 처리 출력
-		function noticePager(dbCount,pageSize,rpage){
-			//alert(dbCount+","+pageSize+","+rpage);
+		function noticePagination(dbCount, pageSize, rpage){
 			var pager = jQuery('#ampaginationsm').pagination({
 				
-			   	maxSize: 7,	    		// max page size
-			    totals: dbCount,	// total rows	
-			    page: 	rpage,		// initial page		
-			    pageSize: pageSize,	// max number items per page
+			    maxSize: 7,	    		// max page size
+			    totals: dbCount,		// total pages	
+			    page: rpage,		// initial page		
+			    pageSize: pageSize,		// max number items per page
 			
 			    // custom labels		
 			    lastText: '&raquo;&raquo;', 		
@@ -83,62 +59,47 @@ $(document).ready(function(){
 			    prevText: '&laquo;',		
 			    nextText: '&raquo;',
 					     
-			    btnSize:'sm'	// 'sm'  or 'lg'	 	
+			    btnSize:'sm'	// 'sm'  or 'lg'		
 			});
-		}	
+		}//noticePagination()
 		
-		
-		
-		//제목 클릭 이벤트 - bclass에 대한 기능 구현
 		function noticeContent(nid){
-			//alert("상세보기;;;nid="+nid);
 			$.ajax({
-				url:"notice_content_json.do?nid="+nid,
-				success:function(result){
-					//alert(result);
+				url : "/notice_content_json/"+nid,
+				success : function(result){
+					//String 객체를 JSON 객체로 변환
 					let data = JSON.parse(result);
+					output = "<table class = 'boardContent'>";
+					output += "<tr><th>등록일자</th><td>" + data.ndate + "</td>";
+					output += "<th>조회수</th><td>" + data.nhits + "</td></tr>";
+					output += "<tr><th>제목</th><td colspan = '3'>" + data.ntitle + "</td></tr>";
+					output += "<tr><th>내용</th><td colspan = '3'>" + data.ncontent + "<br><br>";
+					if(data.nsfile != ""){
+						output += "<img src = 'http://localhost:9004/upload/" + data.nsfile + "' width = '300px'>";
+					}
 					
-					let output = "<table class='boardContent'>";
-					output += "<tr><th>등록일자</th>";
-					output += "<td>"+ data.ndate +"</td>";
-					output += "<th>조회수</th>";
-					output += "<td>"+ data.nhits +"</td></tr>";
-					output += "<tr>";
-					output += "<th>제목</th>";
-					output += "<td colspan='3'>" + data.ntitle + "</td>";
-					output += "</tr>";
-					output += "<tr>";
-					output += "<th>내용</th>";
-					output += "<td colspan='3'>" + data.ncontent + "<br><br><br></td>";
-					output += "</tr>";
-					output += "<tr>";
-					output += "<td colspan='4'>";
-					output += "<button type='button' class='btn_style' id='backList'>리스트</button>";
-					output += "<button type='button' class='btn_style' id='backHome'>홈으로</button>";
+					
 					output += "</td></tr>";
+					
+					output += "<tr>";
+					output += "<td colspan = '4'>";
+					output += "<button type='button' class='btn_style' id = 'backList'>리스트</button>";
+					output += "<button type='button' class='btn_style' id = 'backHome'>홈으로</button>";
+					output += "</td>";
+					output += "</tr>";
 					output += "</table>";
-										
+					
 					//출력
 					$("table.board").remove();
 					$("h1").after(output);
 					
-					//리스트 버튼에 대한 이벤트
 					$("#backList").click(function(){
-						$(location).attr("href","notice_list.do");
-						//location.href = "이동할 주소";
+						$(location).attr("href", "/notice_list");
 					});
-					
-					//홈으로 버튼에 대한 이벤트
 					$("#backHome").click(function(){
-						$(location).attr("href","http://localhost:9000/mycgv/index.do");
+						$(location).attr("href", "/index");
 					});
-					
-				}//success
-				
-			});//ajax
-			
-		}//noticeContent	
-		
-		
-		
+				}
+			})//ajax
+		}//noticeContent
 	});//ready

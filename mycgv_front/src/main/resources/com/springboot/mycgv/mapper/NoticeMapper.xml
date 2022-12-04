@@ -29,8 +29,22 @@
 		delete from cgv_notice where nid = #{nid}
 	</delete>
 	
-	<update id="updateHits" parameterType="java.lang.String">
+	<update id="getNoticeHits" parameterType="java.lang.String">
 		update cgv_notice set nhits=nhits+1 where nid =#{nid}
 	</update>
+	
+	<select id = "getNoticeList" parameterType = "com.springboot.mycgv.dto.PageDto"
+			resultType = "com.springboot.mycgv.dto.NoticeDto">
+		SELECT RNO, NID, NTITLE, NHITS, TO_CHAR(NDATE, 'YYYY-MM-DD') NDATE
+		FROM (SELECT ROWNUM RNO, NID, NTITLE, NHITS, NDATE
+			FROM (SELECT NID, NTITLE, NHITS, NDATE FROM CGV_NOTICE ORDER BY NDATE DESC))
+		WHERE RNO BETWEEN #{startCount} AND #{endCount}		
+	</select>
+	
+	<select id = "getNoticeContent" parameterType = "java.lang.String" resultType = "com.springboot.mycgv.dto.NoticeDto">
+		SELECT NID, NTITLE, NCONTENT, NFILE, NSFILE, NHITS, TO_CHAR(NDATE, 'YYYY-MM-DD') NDATE
+		FROM CGV_NOTICE
+		WHERE NID = #{nid}
+	</select>
 
 </mapper>

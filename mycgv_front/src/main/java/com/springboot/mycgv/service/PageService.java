@@ -46,4 +46,38 @@ public class PageService {
 		
 		return pageDto;
 	}
+	
+	public PageDto getPageResult(String rpage, String tableName) {
+		int startCount = 0;
+		int endCount = 0;
+		int pageSize = 5;
+		int reqPage = 1;
+		int pageCount = 1;
+		int dbCount = pageDao.totalCount(tableName);
+		
+		if(dbCount % pageSize == 0) {
+			pageCount = dbCount/pageSize;
+		}else {
+			pageCount = dbCount/pageSize + 1;
+		}
+		
+		if(rpage != null) {
+			reqPage = Integer.parseInt(rpage);
+			startCount = (reqPage - 1) * pageSize + 1;
+			endCount = reqPage * pageSize;
+		}else {
+			startCount = 1;
+			endCount = pageSize;
+		}
+		
+		PageDto pageDto = new PageDto();
+		pageDto.setStartCount(startCount);
+		pageDto.setEndCount(endCount);
+		pageDto.setPageSize(pageSize);
+		pageDto.setReqPage(reqPage);
+		pageDto.setPageCount(pageCount);
+		pageDto.setDbCount(dbCount);
+		
+		return pageDto;
+	}
 }
